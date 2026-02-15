@@ -1,0 +1,1023 @@
+:root {
+    --primary-color: #A83636; /* Màu đỏ đô giống ảnh mẫu */
+    --bg-color: #F5F0EB;      /* Màu kem nền giấy */
+    --text-color: #333;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Quicksand', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 80px; /* Chừa chỗ cho nút trôi nổi */
+}
+
+/* --- Hero Section --- */
+/* --- HERO SECTION: Style Cinematic --- */
+.hero-section {
+    height: 100vh; /* Full màn hình */
+    position: relative;
+    
+    /* CẤU HÌNH NỀN & GRADIENT */
+    /* Lớp 1 (trên cùng): Gradient đen mờ từ dưới đáy (0.9) lên trên (trong suốt) */
+    /* Lớp 2 (bên dưới): Ảnh nền của bạn */
+    background: 
+        linear-gradient(to top, #FB6F92 0%, #FB6F92 20%, transparent 60%),
+        url('./assets/images/39cd515e-49d6-4267-8e76-60c3e6eb1bcc.jpg');
+        
+    /* Cấu hình hiển thị ảnh (Chọn 1 trong 2 dòng dưới tùy ý thích của bạn) */
+    /* background-size: contain; */ /* Dùng cái này nếu muốn hiện full ảnh (sẽ bị hở 2 bên) */
+    background-size: cover;      /* Dùng cái này nếu muốn ảnh tràn màn hình (đẹp hơn cho style này) */
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    /* CĂN CHỈNH VỊ TRÍ TEXT (Góc trái dưới) */
+    display: flex;
+    align-items: flex-end;     /* Đẩy nội dung xuống đáy */
+    justify-content: flex-start; /* Đẩy nội dung sang trái */
+    
+    padding: 30px; /* Cách lề trái và lề dưới một chút cho đỡ sát mép */
+}
+
+/* --- HERO CONTENT --- */
+.hero-content {
+    text-align: left; /* Căn lề trái cho chữ */
+    margin-bottom: 20px; /* Đẩy lên một chút so với mép dưới cùng */
+    width: 100%;
+}
+
+/* --- TYPOGRAPHY (Chỉnh font chữ) --- */
+.main-title {
+    font-family: 'Cinzel', serif; /* Font có chân sang trọng */
+    font-size: 3.5rem; /* Cỡ chữ to */
+    font-weight: 400;  /* Độ mỏng vừa phải cho thanh thoát */
+    color: #FFF;       /* Chữ trắng */
+    line-height: 1.1;  /* Khoảng cách giữa các dòng khít lại chút cho đẹp */
+    text-transform: uppercase; /* In hoa toàn bộ */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Đổ bóng nhẹ cho chữ nổi hơn */
+}
+
+/* Chỉnh riêng dấu & cho nghệ thuật */
+.ampersand {
+    font-family: 'Great Vibes', cursive; /* Font viết tay mềm mại */
+    font-size: 2.5rem;
+    color: #eee; /* Màu nhạt hơn chút */
+    display: inline-block;
+    margin: 5px 0;
+}
+
+/* Responsive cho điện thoại (Màn hình nhỏ thì chữ nhỏ lại chút) */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .hero-section {
+        padding: 20px;
+    }
+}
+
+/* --- Save The Date Section --- */
+.save-date-section {
+    background: linear-gradient(135deg, #F5E6E8 0%, #F9F5F0 50%, #F5E6E8 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.save-date-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.floral-left {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 800"><path d="M20,100 Q50,120 40,150 T30,200 Q60,220 50,250" stroke="%23D4A5A5" stroke-width="2" fill="none" opacity="0.3"/><circle cx="40" cy="100" r="15" fill="%23D4A5A5" opacity="0.2"/><circle cx="30" cy="150" r="20" fill="%23D4A5A5" opacity="0.15"/><circle cx="50" cy="200" r="18" fill="%23D4A5A5" opacity="0.2"/></svg>') no-repeat center;
+    background-size: contain;
+    opacity: 0.6;
+}
+
+.save-date-content {
+    text-align: center;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(168, 54, 54, 0.1);
+}
+
+.quote-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.cursive-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #999;
+    margin: 20px 0;
+}
+
+.date-text {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 20px 0 30px 0;
+}
+
+.couple-photo {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.couple-photo img {
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+    .cursive-text {
+        font-size: 2rem;
+    }
+    .date-text {
+        font-size: 2rem;
+    }
+    .save-date-content {
+        padding: 30px 20px;
+    }
+    .floral-left {
+        display: none;
+    }
+}
+
+/* --- Wedding Calendar Section --- */
+.wedding-calendar-section {
+    background: linear-gradient(135deg, #FB6F92 0%, #A87080 100%);
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calendar-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+    background: transparent;
+    padding: 20px;
+}
+
+.calendar-header {
+    font-family: var(--font-heading);
+    color: white;
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.calendar-day {
+    color: white;
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 1.2rem;
+    font-family: var(--font-body);
+    position: relative;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day.empty {
+    visibility: hidden;
+}
+
+.calendar-day.wedding-day {
+    position: relative;
+}
+
+.calendar-day.wedding-day .day-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.wedding-day .heart-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5.25rem;
+    color: #D32F2F;
+    z-index: 1;
+    animation: heartbeat 1s infinite;
+}
+
+.calendar-day.today {
+    position: relative;
+}
+
+.calendar-day.today::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+@media (max-width: 768px) {
+    .calendar-title {
+        font-size: 1.5rem;
+    }
+    .calendar-grid {
+        gap: 8px;
+        padding: 10px;
+    }
+    .calendar-header {
+        font-size: 0.85rem;
+        padding: 10px 2px;
+    }
+    .calendar-day {
+        font-size: 1rem;
+        padding: 10px 2px;
+        min-height: 40px;
+    }
+    .calendar-day.wedding-day .heart-icon {
+        font-size: 3.75rem;
+    }
+    .calendar-day.today::before {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* --- Common Section Style --- */
+section { padding: 40px 20px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.section-title { color: var(--primary-color); font-family: var(--font-heading); margin-bottom: 30px; font-size: 1.8rem; }
+
+@media (max-width: 768px) {
+    section { padding: 30px 15px; }
+    .section-title { font-size: 1.4rem; margin-bottom: 20px; }
+}
+
+/* --- Couple Section --- */
+.couple-section {
+    background: linear-gradient(135deg, #F5E6E8 0%, #F9F5F0 50%, #F5E6E8 100%);
+    padding: 60px 20px;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.couple-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.invitation-text {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.couple-names {
+    margin: 40px 0;
+}
+
+.name-text {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    letter-spacing: 8px;
+    margin: 10px 0;
+}
+
+.ampersand-fancy {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #B87B8B;
+    margin: 20px 0;
+}
+
+.polaroid-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 0;
+    flex-wrap: nowrap;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px 15px 60px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    width: 350px;
+    max-width: 45%;
+}
+
+.polaroid-left {
+    transform: rotate(-8deg);
+}
+
+.polaroid-right {
+    transform: rotate(5deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Parent Info Box --- */
+.parent-info-box {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(168, 54, 54, 0.10);
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding: 32px 24px;
+    gap: 0;
+}
+
+.parent-side {
+    flex: 1;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.parent-side-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.parent-side p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 4px 0;
+    line-height: 1.6;
+}
+
+.parent-divider {
+    width: 1.5px;
+    background: var(--primary-color);
+    opacity: 0.35;
+    align-self: stretch;
+    margin: 0 8px;
+}
+
+@media (max-width: 600px) {
+    .parent-info-box {
+        max-width: 90%;
+        padding: 24px 12px;
+    }
+    .parent-side-title {
+        font-size: 0.9rem;
+    }
+    .parent-side p {
+        font-size: 0.75rem;
+    }
+}
+
+.floral-decoration {
+    margin: 40px auto 0;
+    width: 150px;
+    height: 80px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 80"><path d="M75,40 Q60,20 40,30 T20,50 M75,40 Q90,20 110,30 T130,50" stroke="%23A87080" stroke-width="2" fill="none"/><circle cx="75" cy="40" r="8" fill="%23A87080" opacity="0.3"/><circle cx="40" cy="30" r="6" fill="%23D4A5A5" opacity="0.4"/><circle cx="110" cy="30" r="6" fill="%23D4A5A5" opacity="0.4"/></svg>') no-repeat center;
+    background-size: contain;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .couple-section {
+        padding: 40px 15px;
+    }
+    .invitation-text {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+    .couple-names {
+        margin: 30px 0;
+    }
+    .name-text {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+    .ampersand-fancy {
+        font-size: 2.5rem;
+        margin: 15px 0;
+    }
+    .polaroid-photos {
+        gap: 10px;
+        margin: 40px auto;
+        padding: 0 5px;
+        max-width: 100%;
+    }
+    .polaroid {
+        width: calc(50% - 5px);
+        max-width: none;
+        padding: 8px 8px 35px 8px;
+    }
+    .polaroid-left {
+        transform: rotate(-5deg);
+    }
+    .polaroid-right {
+        transform: rotate(5deg);
+    }
+    .polaroid:active {
+        transform: rotate(0deg) scale(0.95);
+    }
+    .floral-decoration {
+        margin: 30px auto 0;
+        width: 120px;
+        height: 60px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .invitation-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+    .name-text {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    .ampersand-fancy {
+        font-size: 2rem;
+    }
+    .polaroid {
+        padding: 6px 6px 30px 6px;
+    }
+}
+
+/* --- Event Section --- */
+.event-section {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #fce4ec 100%);
+}
+
+.event-section .section-title {
+    color: #c2185b;
+}
+
+.calendar-box {
+    background: rgba(255, 255, 255, 0.92); padding: 30px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.12);
+    max-width: 500px; margin: 0 auto;
+    border: 1px solid rgba(236, 64, 122, 0.1);
+}
+.time-big { font-family: var(--font-heading); color: #c2185b; font-size: 1.5rem; display: flex; flex-direction: column; }
+.time-big .day { font-size: 4rem; line-height: 1; font-weight: bold; color: #ad1457; }
+.btn-map {
+    display: inline-block; padding: 10px 25px; margin-top: 15px;
+    background: linear-gradient(135deg, #ec407a, #f06292); color: white; text-decoration: none;
+    border-radius: 50px; font-weight: bold;
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.3);
+    transition: all 0.3s ease;
+}
+.btn-map:hover {
+    background: linear-gradient(135deg, #d81b60, #ec407a);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .calendar-box {
+        padding: 20px 15px;
+    }
+    .time-big {
+        font-size: 1.2rem;
+    }
+    .time-big .day {
+        font-size: 3rem;
+    }
+    .btn-map {
+        padding: 8px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Countdown (inside calendar section) --- */
+.countdown-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    margin: 40px 0 20px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.timer { display: flex; justify-content: center; gap: 15px; }
+.time-item { background: rgba(255, 255, 255, 0.2); color: white; padding: 10px; border-radius: 8px; min-width: 60px; backdrop-filter: blur(5px); }
+.time-item span { font-size: 1.5rem; font-weight: bold; display: block; }
+.time-item p { font-size: 0.8rem; margin: 0; }
+
+@media (max-width: 768px) {
+    .timer {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .time-item {
+        padding: 8px 6px;
+        min-width: 50px;
+        flex: 1;
+        max-width: 70px;
+    }
+    .time-item span {
+        font-size: 1.2rem;
+    }
+    .time-item p {
+        font-size: 0.7rem;
+    }
+}
+
+/* --- Floating Buttons (Nút trôi) --- */
+.floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 100; }
+.float-btn {
+    width: 50px; height: 50px; border-radius: 50%; border: none;
+    background: white; color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 20px; cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Music button icon fade transition */
+.float-btn i {
+    transition: opacity 1s ease;
+}
+
+/* Rotating animation when playing */
+.float-btn.playing {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 768px) {
+    .floating-buttons {
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
+    }
+    .float-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+
+/* --- Modal Popup --- */
+.modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 200; }
+.modal-content {
+    background: white; width: 90%; max-width: 400px; margin: 15% auto; padding: 20px;
+    border-radius: 10px; text-align: center; position: relative;
+}
+.close-btn { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; }
+
+/* --- Map Modal Specific --- */
+.map-modal-content {
+    max-width: none;
+    width: 60vw;
+    height: 60vh;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.map-modal-content iframe {
+    border-radius: 8px;
+    margin-top: 10px;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+.map-modal-content h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.btn-google-map {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+.btn-google-map:hover {
+    background: #8B2828;
+}
+.btn-google-map i {
+    margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: 350px;
+        margin: 20% auto;
+        padding: 15px;
+    }
+    .close-btn {
+        font-size: 25px;
+        top: 8px;
+        right: 12px;
+    }
+    .map-modal-content {
+        width: 60vw;
+        height: 60vh;
+        margin: 0 auto;
+        padding: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .map-modal-content iframe {
+        flex: 1;
+    }
+    .map-modal-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Sound Prompt Overlay --- */
+.sound-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); z-index: 300;
+    display: flex; align-items: center; justify-content: center;
+}
+.sound-prompt-box {
+    background: white; padding: 50px 60px; border-radius: 20px;
+    text-align: center; animation: fadeInScale 0.5s ease;
+    max-width: 500px;
+}
+.sound-prompt-box h2 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+.sound-prompt-box h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+.welcome-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+.welcome-btn:hover {
+    background: #8B2828;
+    transform: scale(1.05);
+}
+.welcome-btn i {
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .sound-prompt-box {
+        padding: 30px 25px;
+        max-width: 90%;
+        margin: 0 15px;
+    }
+    .sound-prompt-box h2 {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+    .sound-prompt-box h1 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .welcome-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- RSVP Section --- */
+.rsvp-section {
+    background: linear-gradient(135deg, #F5E6E8 0%, #F9F5F0 50%, #F5E6E8 100%);
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rsvp-container {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.rsvp-form {
+    background: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(168, 54, 54, 0.1);
+}
+
+.form-group {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: #fafafa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(168, 54, 54, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.radio-option:hover {
+    border-color: var(--primary-color);
+    background: rgba(168, 54, 54, 0.03);
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-custom {
+    border-color: var(--primary-color);
+}
+
+.radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-option input[type="radio"]:checked ~ span:last-child {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Submit button */
+.rsvp-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.rsvp-submit-btn:hover {
+    background: #8B2828;
+    transform: scale(1.02);
+}
+
+.rsvp-submit-btn i {
+    margin-right: 8px;
+}
+
+/* Success message */
+.rsvp-success {
+    text-align: center;
+    background: white;
+    padding: 50px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(168, 54, 54, 0.1);
+    animation: fadeInScale 0.5s ease;
+}
+
+.rsvp-success i {
+    font-size: 3.5rem;
+    color: #4CAF50;
+    margin-bottom: 16px;
+}
+
+.rsvp-success h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.rsvp-success p {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .rsvp-section {
+        padding: 40px 15px;
+    }
+    .rsvp-form {
+        padding: 28px 20px;
+    }
+    .form-group label {
+        font-size: 0.8rem;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+    .radio-option {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    .rsvp-submit-btn {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+}
