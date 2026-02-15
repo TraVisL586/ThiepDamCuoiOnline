@@ -552,6 +552,8 @@ section { padding: 40px 20px; text-align: center; min-height: 100vh; display: fl
 }
 .time-big { font-family: var(--font-heading); color: #c2185b; font-size: 1.5rem; display: flex; flex-direction: column; }
 .time-big .day { font-size: 4rem; line-height: 1; font-weight: bold; color: #ad1457; }
+.event-time { font-family: var(--font-heading); font-size: 1.4rem; color: #ad1457; margin: 8px 0 4px; font-weight: 600; letter-spacing: 1px; }
+.event-time i { margin-right: 6px; }
 .btn-map {
     display: inline-block; padding: 10px 25px; margin-top: 15px;
     background: linear-gradient(135deg, #ec407a, #f06292); color: white; text-decoration: none;
