@@ -1011,3 +1011,101 @@ section { padding: 40px 20px; text-align: center; min-height: 100vh; display: fl
         padding: 12px;
     }
 }
+
+/* ============================================= */
+/* === SCROLL REVEAL ANIMATIONS === */
+/* ============================================= */
+
+/* Base hidden state for all reveal elements */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+}
+
+/* Fade up (default) */
+.reveal.reveal-up {
+    transform: translateY(60px);
+}
+
+/* Fade down */
+.reveal.reveal-down {
+    transform: translateY(-60px);
+}
+
+/* Fade left */
+.reveal.reveal-left {
+    transform: translateX(-60px);
+}
+
+/* Fade right */
+.reveal.reveal-right {
+    transform: translateX(60px);
+}
+
+/* Scale up */
+.reveal.reveal-scale {
+    transform: scale(0.85);
+}
+
+/* Zoom in with rotation */
+.reveal.reveal-zoom {
+    transform: scale(0.7) rotate(-3deg);
+}
+
+/* Active / visible state */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+}
+
+/* Preserve polaroid rotations after reveal */
+.polaroid-left.reveal.active {
+    transform: rotate(-8deg);
+}
+.polaroid-right.reveal.active {
+    transform: rotate(5deg);
+}
+
+/* Stagger delays for child elements */
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+.reveal.delay-4 { transition-delay: 0.4s; }
+.reveal.delay-5 { transition-delay: 0.5s; }
+.reveal.delay-6 { transition-delay: 0.6s; }
+.reveal.delay-7 { transition-delay: 0.7s; }
+
+/* Hero section entrance animation (plays once on load) */
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero starts hidden — animation triggered by JS after welcome click */
+.hero-content .main-title {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.hero-content.animate .main-title {
+    animation: heroFadeIn 1.2s ease 0.3s forwards;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .hero-content .main-title {
+        animation: none;
+    }
+}

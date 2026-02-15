@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 audio.muted = false;
                 setMusicPlaying(true);
                 soundPrompt.style.display = 'none';
+                // Trigger hero animation
+                document.querySelector('.hero-content').classList.add('animate');
             };
         }).catch((err) => {
             // Autoplay failed - clicking button will start playback
@@ -84,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     isPlaying = true;
                     setMusicPlaying(true);
                     soundPrompt.style.display = 'none';
+                    // Trigger hero animation
+                    document.querySelector('.hero-content').classList.add('animate');
                 });
             };
         });
@@ -133,6 +137,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // 6. RSVP Form — Submit to Google Sheets
 // ⚠️ Replace this URL with your deployed Google Apps Script Web App URL
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwFG77OVRw4w5fH4TsvxbCdO6dJ2N_2EEhqtKxTtPlJY7LwX7AinXde1YP_CoCwiDMt/exec';
+
+// 7. Scroll Reveal Animations (IntersectionObserver)
+document.addEventListener('DOMContentLoaded', () => {
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target); // only animate once
+            }
+        });
+    }, {
+        threshold: 0.15,     // trigger when 15% visible
+        rootMargin: '0px 0px -50px 0px' // slight offset from bottom
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const rsvpForm = document.getElementById('rsvp-form');
