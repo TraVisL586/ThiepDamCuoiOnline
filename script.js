@@ -130,11 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 6. RSVP Form
+// 6. RSVP Form — Submit to Google Sheets
+// ⚠️ Replace this URL with your deployed Google Apps Script Web App URL
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwFG77OVRw4w5fH4TsvxbCdO6dJ2N_2EEhqtKxTtPlJY7LwX7AinXde1YP_CoCwiDMt/exec';
+
 document.addEventListener('DOMContentLoaded', () => {
     const rsvpForm = document.getElementById('rsvp-form');
     const rsvpSuccess = document.getElementById('rsvp-success');
     const guestCountGroup = document.getElementById('guest-count-group');
+    const submitBtn = rsvpForm.querySelector('.rsvp-submit-btn');
     const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
 
     // Show/hide guest count based on attendance
@@ -157,10 +161,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const guests = document.getElementById('rsvp-guests').value;
         const message = document.getElementById('rsvp-message').value;
 
-        console.log('RSVP:', { name, attendance, relation, guests, message });
+        // Disable button while sending
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
 
-        // Show success message
-        rsvpForm.style.display = 'none';
-        rsvpSuccess.style.display = 'block';
+        // Prepare form data
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('attendance', attendance === 'yes' ? 'Có' : 'Không');
+        formData.append('relation', relation);
+        formData.append('guests', attendance === 'yes' ? guests : '0');
+        formData.append('message', message);
+
+        // Send to Google Sheets via Apps Script
+        fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.result === 'success') {
+                rsvpForm.style.display = 'none';
+                rsvpSuccess.style.display = 'block';
+            } else {
+                throw new Error(data.error || 'Unknown error');
+            }
+        })
+        .catch(err => {
+            console.error('RSVP error:', err);
+            alert('Có lỗi xảy ra, vui lòng thử lại!');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Gửi xác nhận';
+        });
     });
 });
