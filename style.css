@@ -2,7 +2,7 @@
     --primary-color: #A83636; /* Màu đỏ đô giống ảnh mẫu */
     --bg-color: #F5F0EB;      /* Màu kem nền giấy */
     --text-color: #333;
-    --font-heading: 'Cinzel', serif;
+    --font-heading: 'EB Garamond', serif;
     --font-body: 'Quicksand', sans-serif;
 }
 
@@ -27,7 +27,7 @@ body {
     /* Lớp 2 (bên dưới): Ảnh nền của bạn */
     background: 
         linear-gradient(to top, #FB6F92 0%, #FB6F92 20%, transparent 60%),
-        url('./assets/images/39cd515e-49d6-4267-8e76-60c3e6eb1bcc.jpg');
+        url('./assets/images/anh1_fixed2.JPG');
         
     /* Cấu hình hiển thị ảnh (Chọn 1 trong 2 dòng dưới tùy ý thích của bạn) */
     /* background-size: contain; */ /* Dùng cái này nếu muốn hiện full ảnh (sẽ bị hở 2 bên) */
@@ -52,7 +52,7 @@ body {
 
 /* --- TYPOGRAPHY (Chỉnh font chữ) --- */
 .main-title {
-    font-family: 'Cinzel', serif; /* Font có chân sang trọng */
+    font-family: 'EB Garamond', serif; /* Font có chân sang trọng, hỗ trợ tiếng Việt */
     font-size: 3.5rem; /* Cỡ chữ to */
     font-weight: 400;  /* Độ mỏng vừa phải cho thanh thoát */
     color: #FFF;       /* Chữ trắng */
@@ -119,7 +119,7 @@ body {
 }
 
 .quote-text {
-    font-family: var(--font-heading);
+    font-family: 'EB Garamond', serif;
     font-size: 1.8rem;
     color: var(--primary-color);
     font-weight: 400;
@@ -761,7 +761,7 @@ section { padding: 40px 20px; text-align: center; min-height: 100vh; display: fl
     font-weight: 300;
 }
 .sound-prompt-box h1 {
-    font-family: var(--font-heading);
+    font-family: 'EB Garamond', serif;
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 30px;
@@ -886,9 +886,9 @@ section { padding: 40px 20px; text-align: center; min-height: 100vh; display: fl
 .radio-option {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     cursor: pointer;
-    padding: 10px 14px;
+    padding: 12px 14px;
     border: 1.5px solid #ddd;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -906,39 +906,29 @@ section { padding: 40px 20px; text-align: center; min-height: 100vh; display: fl
 }
 
 .radio-custom {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    position: relative;
-    flex-shrink: 0;
-    transition: border-color 0.3s ease;
+    display: none;
 }
 
 .radio-option input[type="radio"]:checked ~ .radio-custom {
-    border-color: var(--primary-color);
+    display: none;
 }
 
 .radio-custom::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.2s ease;
+    display: none;
 }
 
 .radio-option input[type="radio"]:checked ~ .radio-custom::after {
-    transform: translate(-50%, -50%) scale(1);
+    display: none;
 }
 
 .radio-option input[type="radio"]:checked ~ span:last-child {
     color: var(--primary-color);
     font-weight: 600;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+    border-color: var(--primary-color);
+    background: rgba(168, 54, 54, 0.05);
 }
 
 /* Submit button */
